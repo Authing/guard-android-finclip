@@ -1,14 +1,16 @@
 package cn.authing.guard.finclip;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.finogeeks.lib.applet.client.FinAppClient;
+
+import cn.authing.guard.finclip.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -16,22 +18,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ActivityMainBinding mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        findViewById(R.id.news).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startMiniProgram("6240251d78c1a7000142b0f8");
-            }
-        });
-
-        findViewById(R.id.guard).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //startMiniProgram("62467a363eb8ce0001b772a3");
-                startMiniProgram("6244175278c1a7000142b2c5");
-            }
-        });
+        //mainBinding.news.setOnClickListener(view -> startMiniProgram("6240251d78c1a7000142b0f8"));
+        mainBinding.guard.setOnClickListener(view -> startMiniProgram("6244175278c1a7000142b2c5"));
     }
 
     private void startMiniProgram(String appId){

@@ -1,69 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="25dp">
 
-    <TextView
-        android:id="@+id/title"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp"
-        android:textColor="#000000"
-        android:text="我的小程序"/>
+        android:layout_height="match_parent"
+        android:padding="25dp">
 
-    <LinearLayout
-        android:id="@+id/guard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_authing_default_logo">
-        </ImageView>
         <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:text="我的小程序"/>
+
+        <LinearLayout
+            android:id="@+id/guard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="Authing"
-            android:textSize="15sp"/>
-    </LinearLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_authing_default_logo">
+            </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Authing"
+                android:textSize="15sp"/>
+        </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/news"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/guard"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        android:orientation="vertical"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="50dp"
-        android:visibility="gone"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_new">
-        </ImageView>
-        <TextView
+        <LinearLayout
+            android:id="@+id/news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="News"
-            android:textSize="15sp"/>
-    </LinearLayout>
+            app:layout_constraintStart_toEndOf="@+id/guard"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="50dp"
+            android:visibility="gone"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_new">
+            </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="News"
+                android:textSize="15sp"/>
+        </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -3,13 +3,10 @@ package cn.authing.guard.finclip;
 import android.app.Application;
 import android.util.Log;
 
-import com.finogeeks.lib.applet.client.FinAppClient;
 import com.finogeeks.lib.applet.client.FinAppConfig;
 import com.finogeeks.lib.applet.interfaces.FinCallback;
 
-import cn.authing.guard.Authing;
 import cn.authing.guard.finclip.sdk.AuthingFinClip;
-import cn.authing.guard.finclip.sdk.GuardApi;
 
 public class GuardApplication extends Application {
 
@@ -28,7 +25,6 @@ public class GuardApplication extends Application {
             @Override
             public void onSuccess(Object result) {
                 Log.i("GuardApplication", "fin app client init success: result = " + result);
-                FinAppClient.INSTANCE.getExtensionApiManager().registerApi(new GuardApi());
             }
 
             @Override

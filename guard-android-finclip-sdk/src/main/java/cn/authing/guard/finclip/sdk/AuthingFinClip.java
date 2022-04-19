@@ -27,6 +27,22 @@ public class AuthingFinClip {
             // 小程序进程不执行任何初始化操作
             return;
         }
-        FinAppClient.INSTANCE.init(application, config, callback);
+        FinAppClient.INSTANCE.init(application, config, new FinCallback<Object>() {
+            @Override
+            public void onSuccess(Object result) {
+                FinAppClient.INSTANCE.getExtensionApiManager().registerApi(new GuardApi());
+                callback.onSuccess(result);
+            }
+
+            @Override
+            public void onError(int code, String error) {
+                callback.onError(code, error);
+            }
+
+            @Override
+            public void onProgress(int status, String error) {
+                callback.onProgress(status, error);
+            }
+        });
     }
 }
