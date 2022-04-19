@@ -55,8 +55,8 @@ dependencies {
 
     implementation 'cn.authing:guard:+'
     implementation project(':guard-android-finclip-sdk')
-    implementation 'com.finogeeks.lib:finapplet:2.36.1'
-    implementation "com.tencent.tbs.tbssdk:sdk:43967"
+    implementation 'com.finogeeks.lib:finapplet:+'
+    implementation "com.tencent.tbs.tbssdk:sdk:+"
 
 }
 
