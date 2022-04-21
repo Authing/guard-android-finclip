@@ -48,7 +48,7 @@ task clean(type: Delete) {
 在 gradle 文件的 dependencies 中添加依赖 (guardfinclipsdk.aar 可在工程中获取)
 
 ```groovy
-	implementation files('libs/guardfinclipsdk.aar')
+    implementation files('libs/guardfinclipsdk.aar')
     implementation 'cn.authing:guard:+'
     implementation 'com.finogeeks.lib:finapplet:+'
     implementation "com.tencent.tbs.tbssdk:sdk:+"
@@ -207,15 +207,15 @@ App({
 
 ```javascript
 getCurrentUser() {
-		var _this = this
+    var _this = this
     let getUser = app.guard.getCurrentUser();
-   	ft.guardRequest({
-			url: getUser.url,
-			body: getUser.body,
+    ft.guardRequest({
+      url: getUser.url,
+      body: getUser.body,
       method: getUser.method,
       success: function (res) {
       _this.setData({
-						photo:res.data.photo,
+	    photo:res.data.photo,
             userInfoItems:[
               res.data.nickname,
               res.data.name,
@@ -236,6 +236,7 @@ getCurrentUser() {
 
 
 7.如果小程序想实现微信授权登录，按照 [Authing 微信登录接入文档](https://docs.authing.cn/v2/reference/sdk-for-android/social/wechat.html) 进行相关配置，即可直接在小程序端调用 wx.login 实现微信授权登录并且返回 token
+
 
 
 
