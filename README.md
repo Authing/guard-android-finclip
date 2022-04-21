@@ -48,7 +48,7 @@ task clean(type: Delete) {
 在 gradle 文件的 dependencies 中添加依赖 (guardfinclipsdk.aar 可在工程中获取)
 
 ```groovy
-		implementation files('libs/guardfinclipsdk.aar')
+	implementation files('libs/guardfinclipsdk.aar')
     implementation 'cn.authing:guard:+'
     implementation 'com.finogeeks.lib:finapplet:+'
     implementation "com.tencent.tbs.tbssdk:sdk:+"
