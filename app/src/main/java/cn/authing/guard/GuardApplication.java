@@ -1,4 +1,4 @@
-package cn.authing.guard.finclip;
+package cn.authing.guard;
 
 import android.app.Application;
 import android.util.Log;
@@ -15,11 +15,12 @@ public class GuardApplication extends Application {
         super.onCreate();
 
         FinAppConfig config = new FinAppConfig.Builder()
-                .setSdkKey("8QLZmDxYi9qY5L6V1biny8bvSPmrKcweecWZYDUJmPVndG2JOPsS9yA5fww36gSp")   // SDK Key
-                .setSdkSecret("45b3801c5b863bc8")   // SDK Secret
+                .setSdkKey("8QLZmDxYi9qY5L6V1biny13xS0VMNoQmalb2XagbWS8=")   // SDK Key
+                .setSdkSecret("714c5988f71630bd")   // SDK Secret
                 .setApiUrl("https://api.finclip.com")   // 服务器地址
                 .setApiPrefix("/api/v1/mop/")   // 服务器接口请求路由前缀
                 .setEncryptionType("SM")   // 加密方式，国密:SM，md5: MD5
+                .setEnableAppletDebug(true)
                 .build();
         AuthingFinClip.getInstance().init(this, "6244398c8a4575cdb2cb5656", config, new FinCallback<Object>() {
             @Override

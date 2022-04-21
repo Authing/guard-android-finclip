@@ -1,4 +1,4 @@
-package cn.authing.guard.finclip;
+package cn.authing.guard;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 import com.finogeeks.lib.applet.client.FinAppClient;
 
-import cn.authing.guard.finclip.databinding.ActivityMainBinding;
+import cn.authing.guard.databinding.ActivityMainBinding;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityMainBinding mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        //mainBinding.news.setOnClickListener(view -> startMiniProgram("6240251d78c1a7000142b0f8"));
         mainBinding.guard.setOnClickListener(view -> startMiniProgram("6244175278c1a7000142b2c5"));
     }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.authing.guard.finclip">
+    package="cn.authing.guard">
 
 
 
@@ -24,6 +24,8 @@
 
         <activity android:name=".MainActivity" android:exported="true"/>
         <activity android:name=".UserActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".wxapi.WXEntryActivity" android:exported="true"/>
+
     </application>
 
 </manifest>

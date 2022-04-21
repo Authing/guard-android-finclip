@@ -30,7 +30,7 @@ public class AuthingFinClip {
         FinAppClient.INSTANCE.init(application, config, new FinCallback<Object>() {
             @Override
             public void onSuccess(Object result) {
-                FinAppClient.INSTANCE.getExtensionApiManager().registerApi(new GuardApi());
+                FinAppClient.INSTANCE.getExtensionApiManager().registerApi(new GuardApi(application));
                 callback.onSuccess(result);
             }
 

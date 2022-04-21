@@ -1,4 +1,4 @@
-package cn.authing.guard.finclip;
+package cn.authing.guard;
 
 import static cn.authing.guard.activity.AuthActivity.OK;
 import static cn.authing.guard.activity.AuthActivity.RC_LOGIN;

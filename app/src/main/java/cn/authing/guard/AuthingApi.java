@@ -1,4 +1,4 @@
-package cn.authing.guard.finclip;
+package cn.authing.guard;
 
 import android.util.Log;
 
@@ -8,7 +8,6 @@ import com.finogeeks.lib.applet.interfaces.ICallback;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import cn.authing.guard.Authing;
 import cn.authing.guard.data.UserInfo;
 import cn.authing.guard.network.AuthClient;
 
