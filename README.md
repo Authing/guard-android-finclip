@@ -19,7 +19,7 @@ GuardFinClipExtender 为你的 FinClip 小程序提供了 Authing - Guard 组件
 
 <br>
 
-![image](https://github.com/Authing/guard-android-finclip/blob/master/images-folder/show.gif?raw=true)
+![image](https://github.com/Authing/guard-android-finclip/blob/master/images-folder/demo.gif?raw=true)
 
 </div>
 

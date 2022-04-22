@@ -20,7 +20,6 @@ public class GuardApplication extends Application {
                 .setApiUrl("https://api.finclip.com")   // 服务器地址
                 .setApiPrefix("/api/v1/mop/")   // 服务器接口请求路由前缀
                 .setEncryptionType("SM")   // 加密方式，国密:SM，md5: MD5
-                .setEnableAppletDebug(true)
                 .build();
         GuardFinClipExt.getInstance().init(this, "6244398c8a4575cdb2cb5656", config, new FinCallback<Object>() {
             @Override
