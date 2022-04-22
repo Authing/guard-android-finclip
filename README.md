@@ -1,89 +1,94 @@
-接入 Authing + FinClip + Authing-FinClip-SDK，快速实现身份认证系统+小程序开发+小程序网络请求和微信登录能力
+# GuardFinClipExtender
+
+<LastUpdated/>
+
+<div align=center><img width="300" src="https://files.authing.co/authing-console/authing-logo-new-20210924.svg"></div>
+<br/>
+
+<div align="center">
+  <a href="https://docs.authing.cn/v2/" target="_blank"><img src="https://img.shields.io/badge/docs-passing-success"></a>
+  <a href="https://forum.authing.cn/" target="_blank"><img src="https://img.shields.io/badge/chat-on%20forum-blue"></a>
+  <a href="javascript:;"><img src="https://img.shields.io/badge/License-MIT-brightgreen"></a>
+  <a href="javascript:;"><img src="https://img.shields.io/badge/PRs-welcome-green"></a>
+  <a href="https://developer.apple.com/swift/"><img src="https://img.shields.io/badge/swift-5.0-orange.svg?style=flat"></a>
+<br/>
+
+<br>
+
+GuardFinClipExtender 为你的 FinClip 小程序提供了 Authing - Guard 组件强大的用户认证能力
+
+<br>
+
+![image](https://github.com/Authing/guard-android-finclip/blob/dev_README/images-folder/show.mp4?raw=true)
+
+</div>
+
+## 项目背景
+
+FinClip 小程序同微信小程序相比，不以微信为载体，可以在任意原生 App 中使用并提供多端支持，这是其强大特性。
+但是同时，微信小程序开发者使用 FinClip 需要处理以下：
+1. 复杂的身份认证和用户管理。
+2. wx.login 不再可以一行代码获取授权码（code），需实现微信复杂的授权登录相关接口。
+3. 原生与小程序认证相关复杂的交互。
+
+考虑到以上种种问题，微信小程序开发者会担心庞大的迁移成本。
+
+**GuardFinClipExtender** 为开发者解决了以上问题，并且使用方便简单：
+
+1. 不再需要考虑任何身份认证和用户管理的逻辑。
+2. 微信小程序开发者使用微信登录，只需调用 wx.login 返回值即可一行代码获取到 token。
+3. 原生与小程序认证相关交互都通过 Guard 组件，小程序开发者完全不需要关心。
+
+## GitHub 
+
+下载地址
+
+| 条目     | 说明                                                         |
+| -------- | ------------------------------------------------------------ |
+| 支持版本 | Android 7.0 +                                                |
+| 仓库地址 | [ https://github.com/Authing/guard-android-finclip](https://github.com/Authing/guard-android-finclip) |
+
+## 开始之前
+
+在开始开发之前，需要准备以下内容：
+
+- 开发设备上安装 [AndroidStudio](https://developer.android.google.cn/studio) 以及 [FIDE](https://www.finclip.com/mop/document/develop/developer/fide-introduce.html)
+- 免费创建一个 [Authing 帐号](https://www.authing.cn/)
+- 在 Authing 控制台 [创建一个自建应用](https://docs.authing.cn/v2/guides/app/create-app.html)
+- 免费创建一个 [FinClip 帐号](https://www.finclip.com/)
+- 在 FinClip 控制台 [创建一个小程序](https://www.finclip.com/mop/document/introduce/accessGuide/enterprise-guidelines.html#_3-%E5%88%9B%E5%BB%BA%E5%B0%8F%E7%A8%8B%E5%BA%8F)
 
 
+## 集成 SDK
 
-1.创建 Authing 和 FinClip 应用
+使用 guard-android-finclip 需要以下步骤：
 
-Authing 应用注册地址：https://www.authing.cn/
+- Android 项目集成 Guard-Android SDK 请参阅 [Guard-Android 接入文档](https://docs.authing.cn/v2/reference/sdk-for-android/)
+- Android 项目集成 FinClip-Android SDK 请参阅 [FinClip Android 集成](https://www.finclip.com/mop/document/runtime-sdk/android/android-integrate.html)
+- Android 项目集成 guard-android-finclip
+- 小程序导入 `guard.js`
 
-Finclip 应用注册地址：https://www.finclip.com/
+### Android 项目集成 guard-android-finclip
 
+- clone demo 项目 [ https://github.com/Authing/guard-android-finclip](https://github.com/Authing/guard-android-finclip)
 
-
-2.添加依赖
-
-在工程的 build.gradle 中添加 maven 仓库的地址，添加 Kotlin 的 gradle 插件，完整配置如下：
+- 将在 app  libs 中的guardfinclipsdk.aar 导入到项目 libs 中，并且在 gradle 中添加依赖
 
 ```groovy
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath "com.android.tools.build:gradle:3.5.2"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61"
-    }
-}
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven {
-            url "https://gradle.finogeeks.club/repository/applet/"
-            credentials {
-                username "applet"
-                password "123321"
-            }
-        }
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+implementation files('libs/guardfinclipsdk.aar')
 ```
 
-在 gradle 文件的 dependencies 中添加依赖 (guardfinclipsdk.aar 可在工程中获取)
+### 小程序项目中导入 guard.js
 
-```groovy
-	implementation files('libs/guardfinclipsdk.aar')
-    implementation 'cn.authing:guard:+'
-    implementation 'com.finogeeks.lib:finapplet:+'
-    implementation "com.tencent.tbs.tbssdk:sdk:+"
-```
+- clone demo 项目 https://github.com/Authing/authing-finclip
 
-需要在 App module 下的`build.gradle` 中增加 `doNotStrip` 配置：
+- 将 demo 中 guard 目录下的 `guard.js` 导入到项目中
 
-```groovy
-packagingOptions {
-    // libsdkcore.so、libyuvutil.so是被加固过的，不能被压缩，否则加载动态库时会报错
-    doNotStrip "*/x86/libsdkcore.so"
-    doNotStrip "*/x86_64/libsdkcore.so"
-    doNotStrip "*/armeabi/libsdkcore.so"
-    doNotStrip "*/armeabi-v7a/libsdkcore.so"
-    doNotStrip "*/arm64-v8a/libsdkcore.so"
+## 初始化 SDK
 
-    doNotStrip "*/x86/libyuvutil.so"
-    doNotStrip "*/x86_64/libyuvutil.so"
-    doNotStrip "*/armeabi/libyuvutil.so"
-    doNotStrip "*/armeabi-v7a/libyuvutil.so"
-    doNotStrip "*/arm64-v8a/libyuvutil.so"
-}
-```
+在 Application 中初始化
 
-如果您项目配置了混淆，为了避免SDK中部分不能被混淆的代码被混淆，请配置
-
-```groovy
--keep class com.finogeeks.** {*;}
-```
-
-
-
-3.在 Application 中初始化
-
-```java
+```Swift
 FinAppConfig config = new FinAppConfig.Builder()
         .setSdkKey("FinClip App SDK Key信息")   // SDK Key
         .setSdkSecret("FinClip App SDK Secret信息")   // SDK Secret
@@ -91,7 +96,7 @@ FinAppConfig config = new FinAppConfig.Builder()
         .setApiPrefix("/api/v1/mop/")   // 服务器接口请求路由前缀
         .setEncryptionType("加密方式")   // 加密方式，国密:SM，md5: MD5
         .build();
-AuthingFinClip.getInstance().init(this, "your_authing_app_id", config, new FinCallback<Object>() {
+GuardFinClipExt.getInstance().init(this, "your_authing_app_id", config, new FinCallback<Object>() {
     @Override
     public void onSuccess(Object result) {
         Log.i("GuardApplication", "fin app client init success: result = " + result);
@@ -109,43 +114,21 @@ AuthingFinClip.getInstance().init(this, "your_authing_app_id", config, new FinCa
 });
 ```
 
-
-
-4.初始化登录界面
-
 在合适的地方调用如下代码快速进入 Authing Guard 内置登录界面
 
 ```
 AuthFlow.start(this);
 ```
 
-在初始化 Activity 中获取用户信息
+打开小程序
 
-```java
-@Override
-protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-    if (requestCode == RC_LOGIN && resultCode == OK && data != null) {
-        Intent intent = new Intent(this, MainActivity.class);
-        UserInfo userInfo = (UserInfo) data.getSerializableExtra("user");
-        intent.putExtra("user", userInfo);
-        startActivity(intent);
-        finish();
-    }
-}
-```
-
-
-
-5.启动小程序
-
-```java
+```Swift
 FinAppClient.INSTANCE.getAppletApiManager().startApplet(this, "6244175278c1a7000142b2c5");
 ```
 
+## 小程序使用 Guard API
 
-
-6.小程序调用原生网络请求 API 示例
+### 小程序工程配置
 
 在小程序工程的根目录创建 `FinClipConf.js` 文件，在 `FinClipConf.js ` 中配置原生提供的接口
 
@@ -153,7 +136,7 @@ FinAppClient.INSTANCE.getAppletApiManager().startApplet(this, "6244175278c1a7000
 module.exports = {
     extApi:[
         {
-            name: 'guardRequest', //使用 guardRequest 可以调用 Authing 原生 API
+            name: 'guardRequest', //使用 guardRequest 可以调用 Guard 原生 API
             params: {
                 url: '',
                 body: {},
@@ -170,78 +153,55 @@ module.exports = {
 }
 ```
 
-新建 guard.js 定义业务网络请求接口
+在小程序的 `app.js` 中导入 `guard.js`
 
 ```javascript
-//获取用户信息
-function getCurrentUser() {
-  return {
-    url: '/api/v2/users/me',
-    method: 'GET',
-    body: {}
-  }
-}
-
-module.exports = {
-  getCurrentUser
-}
-```
-
-在小程序的 app.js 中导入定义的网络请求接口
-
-```javascript
-const guard = require('./guard/guard.js')
+const guard = require('./../guard.js')
 // app.js
 App({
   guard:guard,
-  onLaunch() {
-    // 展示本地存储能力
-    const logs = ft.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    ft.setStorageSync('logs', logs)
-  }
 })
 ```
 
-调用业务接口获取业务数据
+使用 Guard API
 
 ```javascript
 getCurrentUser() {
-		var _this = this
+    var _this = this
+    // 通过 app.guard 获取 url 以及 body
     let getUser = app.guard.getCurrentUser();
-   	ft.guardRequest({
-			url: getUser.url,
-			body: getUser.body,
-      method: getUser.method,
-      success: function (res) {
-      _this.setData({
-						photo:res.data.photo,
-            userInfoItems:[
-              res.data.nickname,
-              res.data.name,
-              res.data.username,
-              res.data.phone,
-              res.data.email
-            ]
-        })
+     // 调用 guardRequest 
+    ft.guardRequest({
+        url: getUser.url,
+        body: getUser.body,
+    method: getUser.method,
+    success: function (res) {
         console.log("getCurrentUser success");
-      },
-      fail: function (res) {
+    },
+    fail: function (res) {
         console.log("getCurrentUser fail");
         console.log(JSON.stringify(res["errMsg"]));
-      }
-    });
+    }
+});
 ```
 
+微信登录 API
+> 使用前项目配置参见:https://docs.authing.cn/v2/reference/sdk-for-android/social/wechat.html
+```javascript
+wx.login({
+  timeout:10000,
+  success: (result) => {
+    this.setData({
+        // 获取 token
+        token: result.token
+    })
 
-
-7.如果小程序想实现微信授权登录，按照 [Authing 微信登录接入文档](https://docs.authing.cn/v2/reference/sdk-for-android/social/wechat.html) 进行相关配置，即可直接在小程序端调用 wx.login 实现微信授权登录并且返回 token
-
-
-
-参考资料
-
-Authing Android 接入文档：https://docs.authing.cn/v2/reference/sdk-for-android/
-
-FinClip Android 接入文档：https://www.finclip.com/mop/document/runtime-sdk/android/android-integrate.html
-
+  },
+  fail: (error) => {
+    this.setData({
+        token: error.errMsg
+    })
+  },
+  complete: () => {}
+});
+```

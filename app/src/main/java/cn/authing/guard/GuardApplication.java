@@ -6,7 +6,7 @@ import android.util.Log;
 import com.finogeeks.lib.applet.client.FinAppConfig;
 import com.finogeeks.lib.applet.interfaces.FinCallback;
 
-import cn.authing.guard.finclip.sdk.AuthingFinClip;
+import cn.authing.guard.finclip.sdk.GuardFinClipExt;
 
 public class GuardApplication extends Application {
 
@@ -22,7 +22,7 @@ public class GuardApplication extends Application {
                 .setEncryptionType("SM")   // 加密方式，国密:SM，md5: MD5
                 .setEnableAppletDebug(true)
                 .build();
-        AuthingFinClip.getInstance().init(this, "6244398c8a4575cdb2cb5656", config, new FinCallback<Object>() {
+        GuardFinClipExt.getInstance().init(this, "6244398c8a4575cdb2cb5656", config, new FinCallback<Object>() {
             @Override
             public void onSuccess(Object result) {
                 Log.i("GuardApplication", "fin app client init success: result = " + result);

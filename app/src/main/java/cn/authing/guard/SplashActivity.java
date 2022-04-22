@@ -41,7 +41,6 @@ public class SplashActivity extends AppCompatActivity {
         if (flag == 3) {
             if (Authing.getCurrentUser() != null) {  Intent intent;
                 intent = new Intent(this, MainActivity.class);
-                intent.putExtra("user", Authing.getCurrentUser());
                 startActivity(intent);
                 finish();
             } else {
@@ -55,8 +54,6 @@ public class SplashActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_LOGIN && resultCode == OK && data != null) {
             Intent intent = new Intent(this, MainActivity.class);
-            UserInfo userInfo = (UserInfo) data.getSerializableExtra("user");
-            intent.putExtra("user", userInfo);
             startActivity(intent);
             finish();
         }
