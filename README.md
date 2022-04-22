@@ -119,20 +119,10 @@ AuthingFinClip.getInstance().init(this, "your_authing_app_id", config, new FinCa
 AuthFlow.start(this);
 ```
 
-在初始化 Activity 中获取用户信息
+登录成功之后，获取用户信息可调用：
 
 ```java
-@Override
-protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-    if (requestCode == RC_LOGIN && resultCode == OK && data != null) {
-        Intent intent = new Intent(this, MainActivity.class);
-        UserInfo userInfo = (UserInfo) data.getSerializableExtra("user");
-        intent.putExtra("user", userInfo);
-        startActivity(intent);
-        finish();
-    }
-}
+UserInfo userInfo = Authing.getCurrentUser();
 ```
 
 
