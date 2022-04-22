@@ -19,7 +19,7 @@ GuardFinClipExtender 为你的 FinClip 小程序提供了 Authing - Guard 组件
 
 <br>
 
-![image](https://github.com/Authing/guard-android-finclip/dev_README/images-folder/show.gif?raw=true)
+![image](https://https://github.com/Authing/guard-android-finclip/blob/master/images-folder/show.gif?raw=true)
 
 </div>
 
@@ -71,10 +71,10 @@ FinClip 小程序同微信小程序相比，不以微信为载体，可以在任
 
 - clone demo 项目 [ https://github.com/Authing/guard-android-finclip](https://github.com/Authing/guard-android-finclip)
 
-- 将在 app  libs 中的guardfinclipsdk.aar 导入到项目 libs 中，并且在 gradle 中添加依赖
+- 将在 app  libs 中的 GuardFinClipExtender.aar 导入到项目 libs 中，并且在 gradle 中添加依赖
 
 ```groovy
-implementation files('libs/guardfinclipsdk.aar')
+implementation files('libs/GuardFinClipExtender.aar')
 ```
 
 ### 小程序项目中导入 guard.js
