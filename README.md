@@ -19,7 +19,7 @@ GuardFinClipExtender 为你的 FinClip 小程序提供了 Authing - Guard 组件
 
 <br>
 
-![image](https://github.com/Authing/guard-android-finclip/blob/dev_README/images-folder/show.mp4?raw=true)
+![image](https://github.com/Authing/guard-android-finclip/blob/dev_README/images-folder/show.gif?raw=true)
 
 </div>
 
@@ -39,7 +39,16 @@ FinClip 小程序同微信小程序相比，不以微信为载体，可以在任
 2. 微信小程序开发者使用微信登录，只需调用 wx.login 返回值即可一行代码获取到 token。
 3. 原生与小程序认证相关交互都通过 Guard 组件，小程序开发者完全不需要关心。
 
+<<<<<<< HEAD
 ## GitHub 
+=======
+```groovy
+    implementation files('libs/guardfinclipsdk.aar')
+    implementation 'cn.authing:guard:+'
+    implementation 'com.finogeeks.lib:finapplet:+'
+    implementation "com.tencent.tbs.tbssdk:sdk:+"
+```
+>>>>>>> origin/master
 
 下载地址
 
@@ -120,7 +129,16 @@ GuardFinClipExt.getInstance().init(this, "your_authing_app_id", config, new FinC
 AuthFlow.start(this);
 ```
 
+<<<<<<< HEAD
 打开小程序
+=======
+登录成功之后，获取用户信息可调用：
+
+```java
+UserInfo userInfo = Authing.getCurrentUser();
+```
+
+>>>>>>> origin/master
 
 ```Swift
 FinAppClient.INSTANCE.getAppletApiManager().startApplet(this, "6244175278c1a7000142b2c5");
@@ -168,6 +186,7 @@ App({
 ```javascript
 getCurrentUser() {
     var _this = this
+<<<<<<< HEAD
     // 通过 app.guard 获取 url 以及 body
     let getUser = app.guard.getCurrentUser();
      // 调用 guardRequest 
@@ -176,6 +195,24 @@ getCurrentUser() {
         body: getUser.body,
     method: getUser.method,
     success: function (res) {
+=======
+    let getUser = app.guard.getCurrentUser();
+    ft.guardRequest({
+      url: getUser.url,
+      body: getUser.body,
+      method: getUser.method,
+      success: function (res) {
+      _this.setData({
+	    photo:res.data.photo,
+            userInfoItems:[
+              res.data.nickname,
+              res.data.name,
+              res.data.username,
+              res.data.phone,
+              res.data.email
+            ]
+        })
+>>>>>>> origin/master
         console.log("getCurrentUser success");
     },
     fail: function (res) {
@@ -185,6 +222,7 @@ getCurrentUser() {
 });
 ```
 
+<<<<<<< HEAD
 微信登录 API
 > 使用前项目配置参见:https://docs.authing.cn/v2/reference/sdk-for-android/social/wechat.html
 ```javascript
@@ -205,3 +243,18 @@ wx.login({
   complete: () => {}
 });
 ```
+=======
+
+
+7.如果小程序想实现微信授权登录，按照 [Authing 微信登录接入文档](https://docs.authing.cn/v2/reference/sdk-for-android/social/wechat.html) 进行相关配置，即可直接在小程序端调用 wx.login 实现微信授权登录并且返回 token
+
+
+
+
+参考资料
+
+Authing Android 接入文档：https://docs.authing.cn/v2/reference/sdk-for-android/
+
+FinClip Android 接入文档：https://www.finclip.com/mop/document/runtime-sdk/android/android-integrate.html
+
+>>>>>>> origin/master
